@@ -1,0 +1,284 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2d3035; /* Dark mode background */
+  color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Dark mode styles */
+
+.sidebar {
+  width: 200px;
+  background-color: #24292e;
+  padding: 20px;
+  position: fixed;
+  left: -200px;
+  top: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: left 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar h2 {
+  margin: 20px 0;
+  padding-top: 60px;
+  font-size: 50px;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 60px;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  background-color: #1a1e22;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: #3a3e42;
+}
+
+.light-mode-toggle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.light-mode-toggle .checkbox {
+  display: none;
+}
+
+.light-mode-toggle .toggle {
+  width: 50px;
+  height: 26px;
+  position: relative;
+  cursor: pointer;
+  background-color: linear-gradient(to right, skyblue, lightgray);
+  border-radius: 15px;
+  transition: background-color 0.4s;
+}
+
+.light-mode-toggle .toggle .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transition: .4s;
+  border-radius: 15px;
+}
+
+.light-mode-toggle .toggle .slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.light-mode-toggle .checkbox:checked + .toggle .slider {
+  background-color: #2196F3;
+}
+
+.light-mode-toggle .checkbox:checked + .toggle .slider:before {
+  transform: translateX(22px);
+}
+
+.light-mode-toggle .checkbox:checked + .toggle {
+  background-color: #4CAF50;
+}
+
+.light-mode-toggle .checkbox:checked + .toggle .slider:before {
+  background-color: white;
+}
+
+.light-mode-toggle .mode-label {
+  margin-left: 10px;
+  color: gray; /* Default color in dark mode */
+  font-size: 20px;
+  user-select: none;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.menu-icon {
+  display: block;
+  width: 30px;
+  height: 4px;
+  margin: 6px 0;
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+.count {
+  text-align: center;
+  position: relative; /* Ensure positioning within the container */
+  margin-top: 20px; /* Adjust margin as needed */
+  background-color: #2d3035; /* Dark mode background */
+}
+
+.countdown-msg {
+  font-size: 35px;
+  color: darkslateblue; /* Darker text color */
+  margin-bottom: 20px; /* Add space below the message */
+  background: transparent; /* Transparent background */
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  position: relative;
+  height: 200px; /* Adjust height as needed */
+  background-color: #2d3035/* Set background gradient */
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.countdown {
+  font-size: 48px;
+  font-weight: bold;
+  color: gray;
+  position: absolute;
+  background: transparent; /* Transparent background */
+}
+
+button {
+  margin-top: 20px; /* Adjust margin as needed */
+  padding: 10px 20px;
+  background-color: skyblue;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button.hidden {
+  display: none;
+}
+
+/* Animation styles */
+@keyframes fireworks {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+@keyframes balloon {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-500px);
+  }
+}
+
+.firework, .balloon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  border-radius: 50%;
+}
+
+.firework {
+  animation: fireworks 1s ease-out forwards;
+}
+
+.balloon {
+  animation: balloon 3s ease-in forwards;
+  background-color: skyblue;
+}
+
+/* Light mode styles */
+.light-mode {
+  background-color: #fff;
+  color: #000;
+  background-image: linear-gradient(to right, skyblue, lightgray);
+}
+
+.light-mode .sidebar {
+  background-color: #f7f7f7;
+}
+
+.light-mode .sidebar a {
+  color: #000; /* Text color in light mode */
+  background-color: #ddd; /* Background color in light mode */
+}
+
+.light-mode .container {
+  background-color: #f7f7f7;
+}
+
+.light-mode .menu-icon {
+  background-color: #000; /* Menu icon color in light mode */
+}
+
+.light-mode .count,
+.light-mode .countdown-msg,
+.light-mode button {
+  background-color: transparent; /* Set transparent background in light mode */
+}

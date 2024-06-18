@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <div>
+        <header>
+          <h2>Fraud X</h2>
+        </header>
+        <ul>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="notification.html">Notifications</a></li>
+          <li><a href="work.html">Work Place</a></li>
+          <li><a href="withdraw.html">Withdraw</a></li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><a href="login.html">Logout</a></li>
+        </ul>
+        
+      </div>
+    </nav>
+    <main>
+      <button class="menu-toggle" id="menu-toggle">
+        <span class="menu-icon"></span>
+        <span class="menu-icon"></span>
+        <span class="menu-icon"></span>
+      </button>
+
+      <div class="pay">
+        <h1 class="payment-heading">Make Payment</h1>
+        <p class="payment-info">Send the payment to <span class="phone-number">018762611415</span></p>
+        <div class="payment-options">
+          <div class="option-row">
+            <p class="option-label">Amount:</p>
+            <div class="options">
+              <select id="amount" name="amount">
+                <option value="400">400 TK</option>
+                <option value="600">600 TK</option>
+                <!-- Add more options if needed -->
+              </select>
+            </div>
+          </div>
+          <div class="option-row">
+            <p class="option-label">Payment Method:</p>
+            <div class="options">
+              <select id="payment-method" name="payment-method">
+                <option value="bkash">Bkash</option>
+                <option value="nagad">Nagad</option>
+                <option value="rocket">Rocket</option>
+              </select>
+            </div>
+          </div>
+          <div class="option-row">
+            <p class="option-label">Transaction ID:</p>
+            <input type="text" id="transaction-id" placeholder="Enter transaction ID">
+          </div>
+        </div>
+        <button class="submit-button">Submit Payment</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,378 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #2d3035;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #24292e;
+    padding: 20px;
+    position: fixed;
+    left: -220px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: left 0.3s ease;
+    z-index: 100;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sidebar h2 {
+    margin: 20px 0;
+    padding-top: 60px;
+    font-size: 40px;
+    color: #00aaff;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #1a1e22;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #3a3e42;
+}
+
+.light-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.light-mode-toggle .checkbox {
+    display: none;
+}
+
+.light-mode-toggle .toggle {
+    width: 50px;
+    height: 26px;
+    position: relative;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 15px;
+    transition: background-color 0.4s;
+}
+
+.light-mode-toggle .toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    transition: .4s;
+    border-radius: 15px;
+}
+
+.light-mode-toggle .toggle .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.light-mode-toggle .checkbox:checked + .toggle .slider {
+    background-color: #2196F3;
+}
+
+.light-mode-toggle .checkbox:checked + .toggle .slider:before {
+    transform: translateX(22px);
+}
+
+.light-mode-toggle .checkbox:checked + .toggle {
+    background-color: #4CAF50;
+}
+
+.light-mode-toggle .checkbox:checked + .toggle .slider:before {
+    background-color: white;
+}
+
+.light-mode-toggle .mode-label {
+    margin-left: 10px;
+  color: gray; /* Default color in dark mode */
+  font-size: 20px;
+  user-select: none;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    padding: 0px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.menu-icon {
+    display: block;
+    width: 30px;
+    height: 4px;
+    margin: 6px 0;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Light mode styles */
+.light-mode {
+    background-color: #fff;
+    color: #000;
+    background-image: linear-gradient(to right, skyblue, lightgray);
+}
+}
+
+.light-mode .sidebar {
+    background-color: #f7f7f7;
+}
+
+.light-mode .sidebar a {
+    color: #000; /* Text color in light mode */
+    background-color: #ddd; /* Background color in light mode */
+}
+
+.light-mode .container {
+    background-color: #f7f7f7;
+}
+
+.light-mode .menu-icon {
+    background-color: #000; /* Menu icon color in light mode */
+}
+
+.light-mode .yellow,
+.light-mode .blue,
+.light-mode .gray {
+    background-color: #fff;
+    color: #000;
+}
+
+.light-mode .yellow {
+    background-color: yellow; /* Yellow button color in light mode */
+}
+
+.light-mode .blue {
+    background-color: dodgerblue; /* Blue button color in light mode */
+}
+
+.light-mode .gray {
+    background-color: gray; /* Gray button color in light mode */
+}
+
+.profile {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #2d3035;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light-mode .profile {
+    background-color: #fff;
+    color: #000;
+}
+
+.profile h2 {
+    margin-bottom: 20px;
+    color: #00aaff;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-image {
+    margin-right: 20px;
+    position: relative; /* Ensure relative positioning for absolute child */
+}
+
+.photo-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: #f0f0f0; /* Placeholder background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.photo-placeholder img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.upload-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.upload-btn:hover {
+    background-color: #45a049;
+}
+
+form {
+    margin-top: 10px;
+}
+
+form input[type="file"] {
+    display: none;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: 30%;
+    font-size: 14px;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+.profile-details {
+    text-align: left;
+}
+
+.profile-details p {
+    margin: 5px 0;
+}
+
+.profile-details strong {
+    display: inline-block;
+    width: 100px;
+    color: #00aaff;
+}
+
+/* Referral Section Styles */
+.referral-section {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #2d3035;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-top: 20px;
+}
+
+.light-mode .referral-section {
+    background-color: #fff;
+    color: #000;
+}
+
+.referral-section h2 {
+    margin-bottom: 20px;
+    color: #00aaff;
+}
+
+.referral-section form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.referral-section label {
+    margin-right: 10px;
+}
+
+.referral-section input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+    margin-right: 10px;
+}
+
+.referral-section button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.referral-section button:hover {
+    background-color: #45a049;
+}

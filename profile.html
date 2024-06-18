@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div>
+                <header>
+                    <h2>Fraud X</h2>
+                </header>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="notification.html">Notifications</a></li>
+                    <li><a href="work.html">Work Place</a></li>
+                    <li><a href="withdraw.html">Withdraw</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="login.html">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <main>
+            <button class="menu-toggle" id="menu-toggle">
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+                <span class="menu-icon"></span>
+            </button>
+            <div class="profile">
+                <h2>User Profile</h2>
+                <div class="profile-info">
+                    <div class="profile-image">
+                        <div class="photo-placeholder">
+                            <img id="user-photo" src="default-profile.png" alt="Profile Photo">
+                        </div>
+                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                            <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
+                            <label for="fileToUpload" class="upload-btn">Choose Photo</label>
+                            
+                        </form>
+                    </div>
+                    <div class="profile-details">
+                        <p><strong>Name:</strong> <span id="user-name">Juwel Forazi</span></p>
+                        <p><strong>ID:</strong> <span id="user-id">1698</span></p>
+                        <p><strong>Email:</strong> <span id="user-email">juwel@gmail.com</span></p>
+                        <p><strong>Phone:</strong> <span id="user-phone">01876261415</span></p>
+                        <p><strong>Gender:</strong> <span id="user-gender">Male</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Referral ID Section -->
+            <div class="referral-section">
+                <h2>Referral ID</h2>
+                <form>
+                    <label for="referral-id">Enter your Referral ID:</label>
+                    <input type="text" id="referral-id" name="referral-id" placeholder="Enter your referral ID...">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <script src="profile.js"></script>
+</body>
+</html>
